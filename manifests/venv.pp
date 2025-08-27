@@ -47,11 +47,11 @@ define uv::venv (
   }
 
   if 'PIP_CONFIG_FILE' in $pip_environment {
-    $pip_cmd = 'pip install -r'
+    $pip_cmd = 'pip install'
     $pip_environ = $pip_env_list
     $pip_path = ["${prefix}/bin"]
   } else {
-    $pip_cmd = 'uv pip install -r'
+    $pip_cmd = 'uv pip install'
     $pip_environ = $pip_env_list + ["VIRTUAL_ENV=${prefix}"]
     $pip_path = ["${uv_prefix}/bin"]
   }
