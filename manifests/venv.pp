@@ -10,6 +10,7 @@
 define uv::venv (
   String $prefix,
   Variant[Stdlib::Absolutepath, String] $python,
+  Boolean $system_site_packages = false,
   Hash[String, Variant[String, Integer, Array[String]]] $pip_environment = {},
   Optional[String] $requirements = undef,
   Optional[Stdlib::Absolutepath] $requirements_path = undef,
@@ -38,8 +39,14 @@ define uv::venv (
     $environ = ["XDG_DATA_HOME=${uv_prefix}/share"]
   }
 
+  if $system_site_packages {
+    $ssp_flag = '--system-site-packages'
+  } else {
+    $ssp_flag = ''
+  }
+
   exec { "${name}_venv":
-    command     => "uv venv --seed -p ${python} ${prefix}",
+    command     => "uv venv --seed -p ${python} ${ssp_flag} ${prefix}",
     creates     => "${prefix}/bin/python",
     require     => Class['uv::install'],
     path        => $path,
