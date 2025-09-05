@@ -2,51 +2,40 @@
   "name": "cmdntrf-uv",
   "version": "0.1.0",
   "author": "Félix-Antoine Fortin",
-  "summary": "",
+  "summary": "Install uv python package manager and manage virtual environments",
   "license": "MIT",
-  "source": "",
+  "source": "https://github.com/ComputeCanada/puppet-uv.git",
   "dependencies": [
-
+       { "name":"puppet/archive", "version_requirement": ">= 5.0.0"  },
+       { "name":"puppetlabs/stdlib", "version_requirement": ">= 5.2.0" }
   ],
   "operatingsystem_support": [
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "7",
         "8",
         "9"
-      ]
-    },
-    {
-      "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [
-        "7"
       ]
     },
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
-        "7",
         "8",
         "9"
       ]
     },
     {
-      "operatingsystem": "Scientific",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
       "operatingsystem": "Rocky",
       "operatingsystemrelease": [
-        "8"
+        "8",
+        "9"
       ]
     },
     {
       "operatingsystem": "AlmaLinux",
       "operatingsystemrelease": [
-        "8"
+        "8",
+        "9"
       ]
     },
     {
@@ -60,9 +49,9 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "18.04",
         "20.04",
-        "22.04"
+        "22.04",
+        "24.04"
       ]
     },
     {
